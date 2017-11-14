@@ -1,0 +1,40 @@
+  ADICIONA E REMOVE CHECKBOX
+  
+  Dado("que eu esteja na tela do site") do
+  visit('https://the-internet.herokuapp.com/dynamic_controls')              - Acesso a url
+end
+
+Dado("clico no botão REMOVE") do
+  page.find(:id, 'btn').click                                               - Encontra e clica no botão REMOVE
+end
+
+Então("o checkbox e removido da tela") do
+  page.has_content?("It's gone")                                            - Verifica se a frase consta na pagina indicando que o checkbox foi removido
+  sleep 1
+end
+
+Dado("clico no botão ADD") do
+  page.find(:id, 'btn').click                                               - Encontra e clica no botão ADD
+end
+
+Então("o checkbox e apresentado na tela") do
+  page.has_content?("A checkbox")                                           - Verifica se a frase consta na pagina indicando que o checkbox foi inserido novamente
+  
+end
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ABRE NOVA ABA
+
+Dado("que eu esteja na tela do site") do
+ visit('https://the-internet.herokuapp.com/windows')                                  - Acesso a url
+end
+
+Dado("clico no link click here") do
+  click_link('Click Here')                                                            - Encontra e clica no link da tela
+end
+
+Então("uma nova aba e aberta") do
+page.has_content?("New Window")                                                       - Verifica se a aba foi aberta se contem a descrição New Window na tela
+end
